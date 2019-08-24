@@ -15,7 +15,7 @@ RUN apk add --no-cache python3 \
 
 COPY ./root /
 
-RUN chmod +x /init.py
+RUN chmod +x /init.sh /setip.py /httpserver.sh
 
 EXPOSE 8080
 
