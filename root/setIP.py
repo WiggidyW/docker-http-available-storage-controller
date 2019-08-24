@@ -7,7 +7,7 @@ from kubernetes import client, config
 from kubernetes.client.rest import ApiException
 
 config.load_incluster_config()
-v1 = client.CoreV1Api
+v1 = client.CoreV1Api()
 POD_NAMESPACE = os.environ["POD_NAMESPACE"]
 POD_LABELS = os.environ["POD_LABELS"]
 POD_PORT = os.environ["POD_PORT"]
