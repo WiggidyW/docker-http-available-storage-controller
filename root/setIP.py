@@ -39,5 +39,5 @@ def getNodeWithMostStorage():
 while True:
 	IP = getNodeWithMostStorage()
 	f = open("/IP.txt","w+")
-	f.write("IP=%s\n" % IP)
+	f.write(IP)
 	time.sleep(60)
