@@ -1,4 +1,4 @@
-#!/usr/bin/env ash
+#!/usr/bin/env sh
 /setIP.py &
 P1=$!
 /httpserver.sh &
