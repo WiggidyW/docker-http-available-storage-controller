@@ -37,4 +37,5 @@ def getNodeWithMostStorage():
 	return IP
 
 IP = getNodeWithMostStorage()
-os.environ["IP"] = IP
+f = open("/IP.txt","w+")
+f.write("IP=%s\n" % IP)
