@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env ash
 while true;
 do {
 	echo -e 'HTTP/1.1 200 OK\r\n';
