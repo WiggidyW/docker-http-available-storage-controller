@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import time
-import sys
 import os
 import requests
 from kubernetes import client, config
@@ -19,25 +18,23 @@ def getNodeWithMostStorage():
 		podList = v1.list_namespaced_pod(POD_NAMESPACE, label_selector=POD_LABELS, watch=False)
 	except ApiException as e:
 		print("Exception when calling CoreV1Api->list_namespaced_pod: %s\n" % e)
-		sys.exit(1)
 	else:
 		for i in podList.items:
 			try:
 				r = requests.get("http://" + i.status.pod_ip + ":" + POD_PORT)
 			except requests.exceptions.RequestException as e:
 				print("Exception when calling requests->get: %s\n" % e)
-				sys.exit(1)
 			else:
 				if r.json() > curMax:
 					IP = i.status.pod_ip
 					curMax = r.json()
-	if IP == "":
-		print("ScriptError: IP invalid in getNodeWithMostStorage()\n")
-		sys.exit(1)
 	return IP
 
 while True:
 	IP = getNodeWithMostStorage()
-	f = open("/IP.txt","w")
-	f.write(IP)
+	if IP == "":
+		print("ScriptError: IP invalid in getNodeWithMostStorage()\n")
+	else:
+		f = open("/IP.txt","w")
+		f.write(IP)
 	time.sleep(60)
