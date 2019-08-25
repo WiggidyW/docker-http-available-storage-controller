@@ -29,7 +29,7 @@ def getNodeWithMostStorage():
 				sys.exit(1)
 			else:
 				if r.json() > curMax:
-					IP = i.status.host_ip
+					IP = i.status.pod_ip
 					curMax = r.json()
 	if IP == "":
 		print("ScriptError: IP invalid in getNodeWithMostStorage()\n")
