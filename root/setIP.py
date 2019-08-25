@@ -36,8 +36,7 @@ def getNodeWithMostStorage():
 		sys.exit(1)
 	return IP
 
-while True:
-	IP = getNodeWithMostStorage()
-	f = open("/IP.txt","w+")
-	f.write(IP)
-	time.sleep(60)
+IP = getNodeWithMostStorage()
+f = open("/IP.txt","w+")
+f.write(IP)
+time.sleep(60)
