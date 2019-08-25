@@ -2,6 +2,6 @@
 while true;
 do {
 	echo -e 'HTTP/1.1 200 OK\r\n';
-	/setIP.py && echo $(cat /IP.txt);
+	echo $(cat /IP.txt);
 } | nc -l -p 8080;
 done
